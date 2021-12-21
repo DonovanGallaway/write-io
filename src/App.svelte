@@ -4,6 +4,7 @@
 	import Instructions from './components/Instructions.svelte'
 	import GoalForm from './components/GoalForm.svelte'
 	import Goal from './components/Goal.svelte'
+	import {fade} from 'svelte/transition'
 	let newGoal = false
 	let goals = []
 	let url = "https://write-io.herokuapp.com/goal/"
@@ -12,19 +13,25 @@
 		const data = await response.json()
 		goals = data
 	}
+	let animate = false
 	onMount(() => {
 		getGoals()
+		animate = true
 	})
 </script>
 	
 
 <style>
 
-	@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Vujahday+Script&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Roboto:wght@100&family=Vujahday+Script&display=swap');
     
     :global(*){
         font-family: 'Caveat', cursive;
     }
+
+	:global(textarea){
+		font-family: 'Roboto', sans-serif;
+	}
 
 	:global(button, input[type='submit']){
 		background-color: white;
@@ -45,7 +52,9 @@
 <Header/>
 <Instructions/>
 <main>
-<button on:click={() => newGoal = !newGoal}>New Goal</button>
+{#if animate}
+<button transition:fade={{duration:500, delay:3000}} on:click={() => newGoal = !newGoal}>New Goal</button>
+{/if}
 {#if newGoal}
 <GoalForm url={url} method={'post'} getGoals={getGoals}/>
 {/if}

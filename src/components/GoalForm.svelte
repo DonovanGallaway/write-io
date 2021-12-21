@@ -1,4 +1,6 @@
 <script>
+    import {fade, fly, blur, slide, scale, draw, crossfade} from 'svelte/transition'
+
     export let formData = {
         username: "",
         wordGoal: 0,
@@ -46,7 +48,7 @@
 </style>
 
 {#if method=='post'}
-<form on:submit|preventDefault={addGoal}>
+<form transition:slide on:submit|preventDefault={addGoal}>
     <label for='username'><h4>Username:</h4>
         <input type='text' name='username' bind:value={formData.username}/>
     </label>
