@@ -39,7 +39,10 @@
 </script>
 
 <style>
-    
+    h4{
+        font-size: 2em;
+        margin: .5em;
+    }
 </style>
 
 {#if method=='post'}

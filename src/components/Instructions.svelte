@@ -25,6 +25,10 @@
     p {
         font-size: 24px;
     }
+
+    span{
+        color: blue;
+    }
 </style>
 
 <div>
@@ -32,7 +36,7 @@
     <div transition:fade={{duration:500}} on:click={hideInstruction}>
         <p><i>Welcome to the (very) unofficial "National Novel Writing Month App," affectionately dubbed "NaNoWriM.io" after the abbreviation for the event ("NaNoWriMo").<br/><br/>
         The purpose of the app is to help you track and meet your quotas for NaNoWriMo or your writing in general, making sure you have a space to track your word counts and words. It should be noted that this assumes a writing method involving a computer and an actual desire to write more and set quotas. After all, cheaters never prosper and it's hard to help someone who writes with pen and paper by using word processing tools...<br/><br/>
-        Anyway! Hope you enjoy! (click to hide)</i></p>
+        Anyway! Hope you enjoy! <span>(click to hide)</span></i></p>
     </div>
     {:else}
 <div></div>

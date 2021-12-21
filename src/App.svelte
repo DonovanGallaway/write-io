@@ -20,10 +20,10 @@
 
 <style>
 
-	@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Vujahday+Script&display=swap');
     
     :global(*){
-        font-family: 'Vujahday Script', cursive;
+        font-family: 'Caveat', cursive;
     }
 
 	:global(button, input[type='submit']){

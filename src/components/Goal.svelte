@@ -45,7 +45,7 @@
 </script>
 
 <style>
-    textarea {width: 50%; height: 300px}
+    textarea {width: 100%; height: 300px}
 
     .data{
         display: flex;
@@ -63,6 +63,22 @@
     .goal {
         width: 50%;
         margin: auto;
+    }
+
+    h4{
+        font-size: 1.5em;
+    }
+
+    button{
+        font-size: 1.5em;
+    }
+
+    .keep-writing{
+        background-color: rgb(190, 252, 190);
+    }
+
+    .delete-btn{
+        background-color: rgb(253, 201, 201)
     }
 </style>
 
@@ -82,14 +98,13 @@
 <div>
 <button on:click={saveGoal}>Save</button>
 <button on:click={toggleEdit}>{editButton}</button>
-<button on:click={deleteGoal}>Delete Goal</button>
+<button class="delete-btn" on:click={deleteGoal}>Delete Goal</button>
 </div>
 {:else}
 <p>{goal.text}</p>
 <div>
-<button on:click={() => {stillWriting = true}}>Edit</button>
-<button on:click={toggleEdit}>{editButton}</button>
-<button on:click={deleteGoal}>Delete Goal</button>
+<button class='keep-writing' on:click={() => {stillWriting = true}}>Keep Writing!</button>
+<button class='delete-btn' on:click={deleteGoal}>Delete Goal</button>
 </div>
 {/if}
 </div>
