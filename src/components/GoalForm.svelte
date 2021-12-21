@@ -38,12 +38,16 @@
 
 </script>
 
+<style>
+    
+</style>
+
 {#if method=='post'}
 <form on:submit|preventDefault={addGoal}>
-    <label for='username'>Username: 
+    <label for='username'><h4>Username:</h4>
         <input type='text' name='username' bind:value={formData.username}/>
     </label>
-    <label for='word goal'>Word Goal: 
+    <label for='word goal'><h4>Word Goal: </h4>
         <input type='number' name='wordGoal' bind:value={formData.wordGoal}/>
     </label>
     <input type='submit' value='Add Goal'/>
@@ -51,10 +55,10 @@
 
 {:else}
 <form on:submit|preventDefault={editGoal}>
-    <label for='username'>Username: 
+    <label for='username'><h4>Username:</h4>
         <input type='text' name='username' bind:value={formData.username}/>
     </label>
-    <label for='word goal'>Word Goal: 
+    <label for='word goal'><h4>Word Goal: </h4>
         <input type='number' name='wordGoal' bind:value={formData.wordGoal}/>
     </label>
     <input type='submit' value='Edit Goal'/>

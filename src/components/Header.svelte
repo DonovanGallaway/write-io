@@ -9,11 +9,6 @@ import { onMount } from 'svelte';
 </script>
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
-    
-    *{
-        font-family: 'Vujahday Script', cursive;
-    }
     nav {
         display: flex;
         flex-direction: row;

@@ -15,11 +15,36 @@
 	onMount(() => {
 		getGoals()
 	})
-	
 </script>
+	
+
+<style>
+
+	@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+    
+    :global(*){
+        font-family: 'Vujahday Script', cursive;
+    }
+
+	:global(button, input[type='submit']){
+		background-color: white;
+		color: black;
+		border-radius: 10px;
+		border: solid 3px black;
+	}
+
+	button {
+		font-size: 2em;
+	}
+
+	main {
+		text-align: center;
+	}
+</style>
 
 <Header/>
 <Instructions/>
+<main>
 <button on:click={() => newGoal = !newGoal}>New Goal</button>
 {#if newGoal}
 <GoalForm url={url} method={'post'} getGoals={getGoals}/>
@@ -27,3 +52,4 @@
 {#each goals as item}
 <Goal goal={item} getGoals={getGoals}/>
 {/each}
+</main>
