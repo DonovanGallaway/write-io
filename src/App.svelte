@@ -53,17 +53,13 @@
 <Header/>
 <Instructions/>
 <main>
-{#if token}
-<div></div>
-{:else}
-	{#if animate}
-	<button transition:fade={{duration:500, delay:3000}} on:click={() => newGoal = !newGoal}>New Goal</button>
-	{/if}
-	{#if newGoal}
-	<GoalForm url={url} method={'post'} getGoals={getGoals}/>
-	{/if}
-	{#each goals as item}
-	<Goal goal={item} getGoals={getGoals}/>
-	{/each}
+{#if animate}
+<button transition:fade={{duration:500, delay:3000}} on:click={() => newGoal = !newGoal}>New Goal</button>
 {/if}
+{#if newGoal}
+<GoalForm url={url} method={'post'} getGoals={getGoals}/>
+{/if}
+{#each goals as item}
+<Goal goal={item} getGoals={getGoals}/>
+{/each}
 </main>
