@@ -54,14 +54,14 @@
 <Instructions/>
 <main>
 {#if animate}
-<button transition:fade={{duration:2000, delay:3000}} on:click={() => newGoal = !newGoal}>New Goal</button>
+<button transition:fade={{duration:2000, delay:1000}} on:click={() => newGoal = !newGoal}>New Goal</button>
 {/if}
 {#if newGoal}
 <GoalForm url={url} method={'post'} getGoals={getGoals}/>
 {/if}
 {#each goals as item}
 {#if item.text}
-<div transition:fade={{duration:2000, delay:3000}}>
+<div transition:fade={{duration:2000, delay:1000}}>
 <Goal goal={item} getGoals={getGoals}/>
 </div>
 {:else}
