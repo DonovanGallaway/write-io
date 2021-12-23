@@ -95,15 +95,15 @@
 {/if}
 
 {#if stillWriting}
-<textarea out:fly={{x: 1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}} bind:value={goal.text}/>
-<div out:fly={{x: 1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>
+<textarea out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}} bind:value={goal.text}/>
+<div out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>
 <button on:click={saveGoal}>Save</button>
 <button on:click={toggleEdit}>{editButton}</button>
 <button class="delete-btn" on:click={deleteGoal}>Delete Goal</button>
 </div>
 {:else}
-<p out:fly={{x: 1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>{goal.text}</p>
-<div out:fly={{x: 1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>
+<p out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>{goal.text}</p>
+<div out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>
 <button class='keep-writing' on:click={() => {stillWriting = true}}>Keep Writing!</button>
 <button class='delete-btn' on:click={deleteGoal}>Delete Goal</button>
 </div>
