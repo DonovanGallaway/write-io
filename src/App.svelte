@@ -15,6 +15,10 @@
 	}
 	let animate = false
 	let token
+
+	const toggleNew = () => {
+		newGoal = !newGoal
+	}
 	onMount(() => {
 		getGoals()
 		animate = true
@@ -54,10 +58,10 @@
 <Instructions/>
 <main>
 {#if animate}
-<button transition:fade={{duration:2000, delay:1000}} on:click={() => newGoal = !newGoal}>New Goal</button>
+<button transition:fade={{duration:2000, delay:1000}} on:click={toggleNew}>New Goal</button>
 {/if}
 {#if newGoal}
-<GoalForm url={url} method={'post'} getGoals={getGoals}/>
+<GoalForm url={url} method={'post'} getGoals={getGoals} toggleNew={toggleNew}/>
 {/if}
 {#each goals as item}
 {#if item.text}

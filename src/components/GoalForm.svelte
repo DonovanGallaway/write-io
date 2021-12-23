@@ -14,6 +14,7 @@
     export let getGoals
     export let method = 'post'
     export let toggleEdit
+    export let toggleNew
 
     const addGoal = async () => {
 		await fetch(url, {
@@ -23,6 +24,7 @@
 			},
 			body: JSON.stringify(formData)
 		})
+        toggleNew()
         getGoals()        
 	}
 
