@@ -11,7 +11,7 @@
 	const getGoals = async () => {
 		const response = await fetch(url)
 		const data = await response.json()
-		goals = data
+		goals = data.reverse()
 	}
 	let animate = false
 	let token
@@ -54,12 +54,18 @@
 <Instructions/>
 <main>
 {#if animate}
-<button transition:fade={{duration:500, delay:3000}} on:click={() => newGoal = !newGoal}>New Goal</button>
+<button transition:fade={{duration:2000, delay:3000}} on:click={() => newGoal = !newGoal}>New Goal</button>
 {/if}
 {#if newGoal}
 <GoalForm url={url} method={'post'} getGoals={getGoals}/>
 {/if}
 {#each goals as item}
+{#if item.text}
+<div transition:fade={{duration:2000, delay:3000}}>
 <Goal goal={item} getGoals={getGoals}/>
+</div>
+{:else}
+<Goal goal={item} getGoals={getGoals} stillWriting={true}/>
+{/if}
 {/each}
 </main>

@@ -1,5 +1,6 @@
 <script>
     import GoalForm from './GoalForm.svelte'
+    import {fly,fade, slide} from 'svelte/transition'
     export let goal
     export let getGoals
     $: wordCount = goal.text.split(' ').length - 1
@@ -8,8 +9,8 @@
     let url = "https://write-io.herokuapp.com/goal/" + goal._id
     const toggleEdit = () => {edit = !edit}
 
-    const deleteGoal = () => {
-        fetch(url, {
+    const deleteGoal = async () => {
+        await fetch(url, {
             method: "delete"
         })
         getGoals()
@@ -21,7 +22,7 @@
         done = "red"
     }
 
-    let stillWriting = true
+    export let stillWriting = false
 
     const saveGoal = async () => {
 		await fetch(url, {
@@ -82,7 +83,7 @@
     }
 </style>
 
-<div class='goal'>
+<div transition:fade={{duration:1000}} class='goal'>
 {#if !edit}
 <div class="data">
     <h4>Username: {goal.username}</h4>
@@ -94,15 +95,15 @@
 {/if}
 
 {#if stillWriting}
-<textarea bind:value={goal.text}/>
-<div>
+<textarea transition:slide={{duration:1000}} bind:value={goal.text}/>
+<div transition:slide={{duration:1000}}>
 <button on:click={saveGoal}>Save</button>
 <button on:click={toggleEdit}>{editButton}</button>
 <button class="delete-btn" on:click={deleteGoal}>Delete Goal</button>
 </div>
 {:else}
-<p>{goal.text}</p>
-<div>
+<p transition:slide={{duration:1000}}>{goal.text}</p>
+<div transition:slide={{duration:1000}}>
 <button class='keep-writing' on:click={() => {stillWriting = true}}>Keep Writing!</button>
 <button class='delete-btn' on:click={deleteGoal}>Delete Goal</button>
 </div>
