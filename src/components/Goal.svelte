@@ -84,28 +84,28 @@
 </style>
 
 <div transition:fade={{duration:1000}} class='goal'>
-{#if !edit}
-<div class="data">
-    <h4>Username: {goal.username}</h4>
-    <h4>Word Goal: {goal.wordGoal}</h4>
-    <h4 id="goal-met" style="--done: {done}">Word Count: {wordCount}</h4>
-</div>
-{:else}
-    <GoalForm url={url} formData={goal} method={'put'} getGoals={getGoals} toggleEdit={toggleEdit}/>   
-{/if}
+    {#if !edit}
+    <div class="data">
+        <h4>Username: {goal.username}</h4>
+        <h4>Word Goal: {goal.wordGoal}</h4>
+        <h4 id="goal-met" style="--done: {done}">Word Count: {wordCount}</h4>
+    </div>
+    {:else}
+        <GoalForm url={url} formData={goal} method={'put'} getGoals={getGoals} toggleEdit={toggleEdit}/>   
+    {/if}
 
-{#if stillWriting}
-<textarea out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}} bind:value={goal.text}/>
-<div out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>
-<button on:click={saveGoal}>Save</button>
-<button on:click={toggleEdit}>{editButton}</button>
-<button class="delete-btn" on:click={deleteGoal}>Delete Goal</button>
-</div>
-{:else}
-<p out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>{goal.text}</p>
-<div out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>
-<button class='keep-writing' on:click={() => {stillWriting = true}}>Keep Writing!</button>
-<button class='delete-btn' on:click={deleteGoal}>Delete Goal</button>
-</div>
-{/if}
+    {#if stillWriting}
+    <textarea out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}} bind:value={goal.text}/>
+    <div out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>
+        <button on:click={saveGoal}>Save</button>
+        <button on:click={toggleEdit}>{editButton}</button>
+        <button class="delete-btn" on:click={deleteGoal}>Delete Goal</button>
+    </div>
+    {:else}
+    <p out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>{goal.text}</p>
+    <div out:fly={{x: -1000, duration:1000}} in:fly={{x: 1000, duration:1000,delay: 1000}}>
+        <button class='keep-writing' on:click={() => {stillWriting = true}}>Keep Writing!</button>
+        <button class='delete-btn' on:click={deleteGoal}>Delete Goal</button>
+    </div>
+    {/if}
 </div>

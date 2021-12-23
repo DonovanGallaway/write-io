@@ -38,11 +38,11 @@ import { onMount } from 'svelte';
 </style>
 
 <nav>
-{#if animate}
-    <h1 transition:fade={{duration:1000}}>NaNoWriM.io</h1>
-    <div transition:fly={{y:1000,duration:2000,delay:500}} class="logos">
-        <a href='https://github.com/DonovanGallaway'><img class="logo" src='img/github-logo.png' alt='github'/></a>
-        <a href='https://www.linkedin.com/in/donovan-gallaway/'><img class="logo" src='/img/linkedin-logo.png' alt='linkedin'/></a>
-    </div>
-{/if}
+    {#if animate}
+        <h1 transition:fade={{duration:1000}}>NaNoWriM.io</h1>
+        <div transition:fly={{y:1000,duration:2000,delay:500}} class="logos">
+            <a href='https://github.com/DonovanGallaway'><img class="logo" src='img/github-logo.png' alt='github'/></a>
+            <a href='https://www.linkedin.com/in/donovan-gallaway/'><img class="logo" src='/img/linkedin-logo.png' alt='linkedin'/></a>
+        </div>
+    {/if}
 </nav>
