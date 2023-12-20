@@ -7,7 +7,7 @@
 	import {fade} from 'svelte/transition'
 	let newGoal = false
 	let goals = []
-	let url = "https://write-io.herokuapp.com/goal/"
+	let url = "https://nanowrimo-backend-ed979ddf8fb7.herokuapp.com/goal"
 	const getGoals = async () => {
 		const response = await fetch(url)
 		const data = await response.json()
