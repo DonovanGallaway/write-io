@@ -6,7 +6,8 @@
     $: wordCount = goal.text.split(' ').length - 1
     $: goal.goalMet = goal.wordGoal <= goal.text.split(' ').length -1
     let edit = false
-    let url = "https://write-io.herokuapp.com/goal/" + goal._id
+    let url = "https://nanowrimo-backend-ed979ddf8fb7.herokuapp.com/goal/" + goal._id
+    console.log(goal)
     const toggleEdit = () => {edit = !edit}
 
     const deleteGoal = async () => {

@@ -4,7 +4,7 @@
         password: ""
     }
 
-    const url = "https://write-io.herokuapp.com/auth/signup"
+    const url = "https://nanowrimo-backend-ed979ddf8fb7.herokuapp.com/auth/signup"
 
     const handleSubmit = async (formData) => {
         await fetch(url, {
