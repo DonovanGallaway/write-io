@@ -20,6 +20,9 @@
             password_matches = false
             return
         }
+        else {
+            password_matches = true
+        }
         await fetch(url, {
             method: "post",
             headers: {
@@ -38,12 +41,12 @@
         <input type='password' name='password' bind:value={formData.password}/>
     </label>
     {#if login}
-    <label for="confirm password">Confirm Password
-        <input type="password" name="confirm_password" bind:value={confirm_password}/>
-    </label>
-    {#if !password_matches}
-        <p>Passwords do not match</p>
-    {/if}
+        <label for="confirm password">Confirm Password
+            <input type="password" name="confirm_password" bind:value={confirm_password}/>
+        </label>
+        {#if !password_matches}
+            <p>Passwords do not match</p>
+        {/if}
     {/if}
     <input type='submit' value='Sign Up'/>
 </form>
